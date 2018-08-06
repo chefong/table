@@ -1,2 +1,2 @@
-# same
+# saaame
 A social platform for being open about any problems.
