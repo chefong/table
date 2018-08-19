@@ -1,2 +1,2 @@
 # table
-A social platform for being open about any problems.
+A social platform for being anonymously open about any problems.
