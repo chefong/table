@@ -7,7 +7,7 @@ const Post = require('../../models/Post');
 // Post GET request
 router.get('/', (req, res) => {
   Post.find()
-    .then(Posts => res.json(Posts));
+    .then(posts => res.json(posts));
 });
 
 // Post POST request
@@ -23,12 +23,17 @@ router.post('/', (req, res) => {
     .then(Post => res.json(Post))
 });
 
+// Post PUT request
+router.put('/:id', (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(post => res.json(post))
+});
+
 // Post DELETE request
 router.delete('/:id', (req, res) => {
-  Post.findById(req.params.id)
-    .then(Post => Post.remove()
-      .then(() => res.json({success: true})))
-    .catch(err => res.state(404).json({success: false}));
+  Post.findByIdAndRemove(req.params.id)
+    .then(() => res.json({success: true}))
+    .catch(() => res.state(404).json({success: false}));
 });
 
 module.exports = router;
