@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const User = new Schema({
+const Post = new Schema({
   name: {
     type: String,
     default: '',
     required: true
   },
-  email: {
+  text: {
     type: String,
     default: '',
     required: true
@@ -17,11 +17,15 @@ const User = new Schema({
     default: '',
     required: true
   },
+  count: {
+    type: Number,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
   }
 });
 
-const user = mongoose.model('User', User);
-module.exports = user;
+const post = mongoose.model('User', Post);
+module.exports = post;

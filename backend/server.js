@@ -1,10 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const db = require('./config/secrets').mongoURI;
-const port = process.env.PORT || 5000;
 const app = express();
-const users = require('./routes/api/users');
+
+// Import mLab URI
+const db = require('./config/secrets').mongoURI;
+
+// Set server port number
+const port = process.env.PORT || 5000;
+
+// Import '/api/posts' route
+const posts = require('./routes/api/posts');
 
 app.use(bodyParser.json());
 
@@ -26,4 +32,4 @@ app.get('/', (req, res) => {
 })
 
 // Using routes
-app.use('/api/users', users);
+app.use('/api/posts', posts);
