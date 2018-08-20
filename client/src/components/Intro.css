@@ -1,0 +1,37 @@
+.stacks-container {
+  text-align: center;
+}
+
+#table-stacks {
+  width: 45vh;
+  margin-top: 15%;
+}
+
+.table-desc {
+  font-family: Brandon Grotesque;
+  color: rgb(103, 103, 103);
+  font-size: 150%;
+  text-align: center;
+  padding: 0 5vw;
+  margin-top: 25%;
+}
+
+.table-italic {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.table-underline {
+  text-decoration: underline;
+}
+
+.get-started-container {
+  margin-top: 8%;
+  text-align: center;
+}
+
+.get-started {
+  font-family: Brandon Grotesque;
+  border-radius: 15px;
+  font-size: 110%;
+}

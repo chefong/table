@@ -1,0 +1,34 @@
+.info-container {
+  margin-bottom: 4%;
+}
+
+.subtitle {
+  font-family: Brandon Grotesque;
+  font-size: 275%;
+  font-weight: bold;
+  color: #676767;
+  text-align: center;
+}
+
+.subtitle-desc {
+  font-family: Brandon Grotesque;
+  font-size: 120%;
+  color: #676767;
+  text-align: left;
+  padding: 0 10%;
+  margin-top: 3%;
+  margin-bottom: 10%;
+}
+
+.subtitle-italic {
+  font-style: italic;
+}
+
+.anonymous-container {
+  text-align: center;
+}
+
+#anonymous-people {
+  width: 75%;
+  margin-bottom: 4vw;
+}

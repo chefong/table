@@ -3,3 +3,27 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@font-face {
+  font-family: Brandon Grotesque;
+  src: url('./assets/fonts/Brandon_reg.otf');
+}
+
+@font-face {
+  font-family: Brandon Grotesque;
+  src: url('./assets/fonts/Brandon_bld.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Brandon Grotesque;
+  src: url('./assets/fonts/Brandon_reg_it.otf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Brandon Grotesque;
+  src: url('./assets/fonts/Brandon_bld_it.otf');
+  font-weight: bold;
+  font-style: italic;
+}
