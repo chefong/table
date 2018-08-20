@@ -4,13 +4,13 @@ const router = express.Router();
 // Use Post Model
 const Post = require('../../models/Post');
 
-// Post GET request
+// Retrieve all posts
 router.get('/', (req, res) => {
   Post.find()
     .then(posts => res.json(posts));
 });
 
-// Post POST request
+// Make a new post
 router.post('/', (req, res) => {
   const newPost = new Post({
     name: req.body.name,
@@ -23,13 +23,13 @@ router.post('/', (req, res) => {
     .then(Post => res.json(Post))
 });
 
-// Post PUT request
+// Edit post
 router.put('/:id', (req, res) => {
   Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(post => res.json(post))
 });
 
-// Post DELETE request
+// Delete post
 router.delete('/:id', (req, res) => {
   Post.findByIdAndRemove(req.params.id)
     .then(() => res.json({success: true}))
