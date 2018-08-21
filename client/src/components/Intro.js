@@ -1,5 +1,6 @@
 import React from 'react';
 import './Intro.css';
+import { NavLink } from 'react-router-dom';
 
 const stacks = require('../assets/imgs/table stack.png');
 
@@ -17,7 +18,7 @@ const Intro = () => {
             <span className="table-italic"> everyone</span> while staying completely <span className="table-italic">anonymous</span>.
           </p>
           <div className="get-started-container">
-            <button type="button" className="btn btn-secondary get-started">Get Started</button>
+            <NavLink to="/home"><button type="button" className="btn btn-secondary get-started" onClick={this.handleClick}>Take Me There</button></NavLink>
           </div>
         </div>
       </div>

@@ -1,0 +1,26 @@
+.home-container {
+  background-color: #f8f9fa;
+  height: 100vh;
+}
+
+.welcome-home-container {
+  padding: 0 8%;
+  padding-top: 5%;
+}
+
+#welcome {
+  font-family: Brandon Grotesque;
+  color: #676767;
+  font-size: 300%;
+  text-align: center;
+}
+
+.create-container {
+  text-align: center;
+}
+
+.create-button {
+  font-family: Brandon Grotesque;
+  border-radius: 15px;
+  margin-top: 3%;
+}

@@ -1,6 +1,8 @@
 .wrapper {
-  background: linear-gradient(#f8f9fa, #f8f9fa 80%, #ffffff);
+  background-color: #f8f9fa;
   margin-bottom: 12vw;
 }
 
-/* #f8f9fa */
+.welcome-container {
+  background-color: #f8f9fa;
+}
