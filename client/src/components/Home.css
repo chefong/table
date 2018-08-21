@@ -1,6 +1,5 @@
 .home-container {
   background-color: #f8f9fa;
-  height: 100vh;
 }
 
 .welcome-home-container {
@@ -13,6 +12,10 @@
   color: #676767;
   font-size: 300%;
   text-align: center;
+}
+
+.posts-container {
+  padding-bottom: 2%;
 }
 
 .create-container {
@@ -68,4 +71,13 @@
   border-radius: 15px;
   border: none;
   margin: 0 2%;
+}
+
+.back {
+  color: #676767;
+}
+
+.back:hover {
+  text-decoration: none;
+  color: #383838;
 }

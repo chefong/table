@@ -1,6 +1,6 @@
 .post-container {
   text-align: center;
-  margin: 5% 0;
+  margin-top: 10%;
 }
 
 .content-container {
@@ -23,4 +23,27 @@
   color: #676767;
   margin-top: 5%;
   padding: 0 10%;
+}
+
+.hand-container {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 4%;
+}
+
+.hand-count {
+  width: 10%;
+  float: left;
+  margin-left: 20%;
+}
+
+.hand-count:hover {
+  cursor: pointer;
+}
+
+.count-number {
+  font-family: Brandon Grotesque;
+  color: #676767;
+  float: left;
+  margin-left: 2%;
 }

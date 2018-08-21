@@ -18,7 +18,7 @@ const Intro = () => {
             <span className="table-italic"> everyone</span> while staying completely <span className="table-italic">anonymous</span>.
           </p>
           <div className="get-started-container">
-            <NavLink to="/home"><button type="button" className="btn btn-secondary get-started" onClick={this.handleClick}>Take Me There</button></NavLink>
+            <NavLink to="/home"><button type="button" className="btn btn-secondary get-started" onClick={this.handleClick}>Lets Go</button></NavLink>
           </div>
         </div>
       </div>

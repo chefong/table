@@ -28,7 +28,7 @@ class Home extends Component {
 
     axios.post('http://localhost:5000/api/posts', {
       name: userAvatar,
-      color: userColor,
+      color: userColor.toLowerCase(),
       text: userText,
       count: 0
     })
@@ -60,7 +60,7 @@ class Home extends Component {
         <div className="container-fluid home-container">
           <div className="row justify-content-center welcome-home-container">
             <div className="col-md-5">
-              <h1 id="welcome">Welcome to <strong>table</strong>.</h1>
+              <h1 id="welcome">Welcome to <NavLink to="/" className="back"><strong>table</strong></NavLink>.</h1>
             </div>
             <div className="col-md-3 create-container">
               <button type="button" className="btn btn-secondary create-button" onClick={this.toggleModal}>+ Create</button>
@@ -70,13 +70,31 @@ class Home extends Component {
                     <p className="form-text">Pick an avatar! Don't worry, you'll be anonymous.</p>
                     <div className="row">
                       <div className="col-md-6">
-                        <input type="text" className="form-control input-text" name="userAvatar" placeholder="Animal name"/>
+                        <select className="form-control input-text" name="userAvatar">
+                          <option>Badger</option>
+                          <option>Bear</option>
+                          <option>Cat</option>
+                          <option>Chicken</option>
+                          <option>Cow</option>
+                          <option>Dog</option>
+                          <option>Koala</option>
+                          <option>Moose</option>
+                          <option>Pig</option>
+                        </select>
                       </div>
                     </div>
                     <p className="form-text">Pick a color for your table!</p>
                     <div className="row">
                       <div className="col-md-6">
-                        <input type="text" className="form-control input-text" name="userColor" placeholder="Color"/>
+                      <select className="form-control input-text" name="userColor">
+                          <option>Red</option>
+                          <option>Orange</option>
+                          <option>Yellow</option>
+                          <option>Green</option>
+                          <option>Blue</option>
+                          <option>Purple</option>
+                          <option>Black</option>
+                        </select>
                       </div>
                     </div>
                     <p className="form-text">Lastly, share what you want to talk about.</p>
