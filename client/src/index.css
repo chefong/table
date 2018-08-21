@@ -28,3 +28,9 @@ body {
   font-weight: bold;
   font-style: italic;
 }
+
+@font-face {
+  font-family: Brandon Grotesque;
+  src: url('./assets/fonts/Brandon_med.otf');
+  font-weight: 500;
+}

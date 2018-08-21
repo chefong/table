@@ -24,3 +24,48 @@
   border-radius: 15px;
   margin-top: 3%;
 }
+
+.create-modal {
+  border-radius: 25px;
+}
+
+.form-text {
+  font-family: Brandon Grotesque;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+
+.input-text {
+  font-family: Brandon Grotesque;
+  margin-top: -4%;
+  margin-bottom: 10%;
+}
+
+.textarea-text {
+  font-family: Brandon Grotesque;
+  margin-top: -2%;
+}
+
+.form-button-container {
+  text-align: center;
+  margin-top: 4%;
+}
+
+.cancel-button {
+  font-family: Brandon Grotesque;
+  border-radius: 15px;
+  background-color: #A74B4B;
+  border: none;
+  margin: 0 2%;
+}
+
+.cancel-button:hover {
+  background-color: rgb(141, 37, 37);
+}
+
+.submit-button {
+  font-family: Brandon Grotesque;
+  border-radius: 15px;
+  border: none;
+  margin: 0 2%;
+}

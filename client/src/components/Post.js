@@ -9,6 +9,8 @@ const bearIconTwo = require('../assets/imgs/animals/bear2.png');
 const dogIcon = require('../assets/imgs/animals/dog.png');
 const koalaIcon = require('../assets/imgs/animals/koala.png');
 const mooseIcon = require('../assets/imgs/animals/moose.png');
+const catIcon = require('../assets/imgs/animals/cat.png');
+const chickenIcon = require('../assets/imgs/animals/chicken.png');
 
 class Post extends Component {
 
@@ -45,6 +47,12 @@ class Post extends Component {
         break;
       case "moose":
         return mooseIcon;
+        break;
+      case "cat":
+        return catIcon;
+        break;
+      case "chicken":
+        return chickenIcon;
     }
   }
 
