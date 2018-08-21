@@ -23,32 +23,26 @@ class Post extends Component {
   }
 
   chooseAnimal = () => {
-    switch (this.props.animal.toLowerCase()) {
+    switch (this.props.avatarIcon.toLowerCase()) {
       case "badger":
         return badgerIcon;
-        break;
       case "pig":
         return pigIcon;
-        break;
       case "cow":
         return cowIcon;
-        break;
       case "bear":
         return bearIcon;
-        break;
       case "dog":
         return dogIcon;
-        break;
       case "koala":
         return koalaIcon;
-        break;
       case "moose":
         return mooseIcon;
-        break;
       case "cat":
         return catIcon;
-        break;
       case "chicken":
+        return chickenIcon;
+      default:
         return chickenIcon;
     }
   }
@@ -57,23 +51,19 @@ class Post extends Component {
     switch (this.props.color) {
       case "red":
         return "#ea5858";
-        break;
       case "orange":
         return "#fbaf5d";
-        break;
       case "yellow":
         return "#fff568";
-        break;
       case "green":
         return "#77c77b";
-        break;
       case "blue":
         return "#779efe";
-        break;
       case "purple":
         return "#cd7fe7";
-        break;
       case "black":
+        return "#000000";
+      default:
         return "#000000";
     }
   }

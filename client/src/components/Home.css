@@ -1,3 +1,18 @@
+.page-loading-container {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.loading-message {
+  font-family: Brandon Grotesque;
+  color: #676767;
+}
+
 .home-container {
   background-color: #f8f9fa;
 }
@@ -35,7 +50,7 @@
 .form-text {
   font-family: Brandon Grotesque;
   font-weight: 500;
-  color: #4a4a4a;
+  color: #676767;
 }
 
 .input-text {
@@ -80,4 +95,19 @@
 .back:hover {
   text-decoration: none;
   color: #383838;
+}
+
+#spinner2 {
+  width: 50%;
+}
+
+.color-block {
+  margin-top: -1vw;
+  width: 50%;
+  border-radius: 50px;
+}
+
+.form-avatar {
+  width: 50%;
+  margin-top: -1vw;
 }
