@@ -52,7 +52,7 @@ class Home extends Component {
 
     this.setState({createLoading: true});
 
-    axios.post('/api/posts', {
+    axios.post('https://lit-forest-48274.herokuapp.com/api/posts', {
       name: userAvatar,
       color: userColor.toLowerCase(),
       text: userText,
@@ -125,7 +125,7 @@ class Home extends Component {
     this.setState({pageLoading: true});
 
     // Get and store all table posts on load
-    axios.get('/api/posts')
+    axios.get('https://lit-forest-48274.herokuapp.com/api/posts')
       .then(res => {
         console.log(res.data);
         this.setState({

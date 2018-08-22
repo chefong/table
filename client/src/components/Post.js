@@ -47,7 +47,7 @@ class Post extends Component {
       return;
     }
 
-    axios.put(`/api/posts/${this.props.id}`, {
+    axios.put(`https://lit-forest-48274.herokuapp.com/api/posts/${this.props.id}`, {
       count: this.state.count + 1
     })
     .then(res => console.log(res))
@@ -87,7 +87,7 @@ class Post extends Component {
     let userComments = this.props.comments;
     userComments.push(e.target.elements[0].value);
 
-    axios.put(`/api/posts/${this.props.id}`, {
+    axios.put(`https://lit-forest-48274.herokuapp.com/api/posts/${this.props.id}`, {
       comments: userComments
     })
     .then(res => {
