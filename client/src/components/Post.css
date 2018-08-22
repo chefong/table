@@ -7,10 +7,45 @@
   border-style: solid;
   border-width: 5px;
   border-radius: 20px;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
   background-color: white;
-  height: 350px;
+  height: 650px;
+  max-height: 750px;
+}
+
+.avatar-container {
+  text-align: center;
+  margin-left: 1%;
+}
+
+.text-container {
+  overflow: scroll;
+  height: 40%;
+  margin-top: 4%;
+  white-space: pre-wrap;
+}
+
+.comments-outer-container {
+  margin-top: 5%;
+}
+
+.comments-container {
+  margin: 4% 2% 2% 2%;
+  text-align: center;
+}
+
+.comments-subtitle {
+  font-family: Brandon Grotesque;
+  font-weight: bold;
+  letter-spacing: 0.5vw;
+  color: #676767;
+  font-size: 80%;
+}
+
+.comments {
+  text-align: left;
+  font-family: Brandon Grotesque;
+  color: #676767;
 }
 
 .animal-icon {
@@ -22,20 +57,20 @@
   text-align: left;
   font-family: Brandon Grotesque;
   color: #676767;
-  margin-top: 5%;
-  padding: 0 10%;
+  margin: 0 10%;
 }
 
-.hand-container {
-  position: absolute;
+.foot-container {
   bottom: 0;
-  padding-bottom: 4%;
+  position: absolute;
+  padding-bottom: 6%;
+  text-align: center;
+  z-index: 1;
 }
 
 .hand-count {
-  width: 10%;
-  float: left;
-  margin-left: 15%;
+  width: 30%;
+  display: inline-block;
 }
 
 .hand-count:hover {
@@ -45,6 +80,52 @@
 .count-number {
   font-family: Brandon Grotesque;
   color: #676767;
-  float: left;
-  margin-left: 2%;
+  display: inline-block;
+  margin-left: 10%;
+}
+
+.left-arrow, .right-arrow {
+  width: 15px;
+  margin-top: 4vh;
+}
+
+.left-arrow:hover, .right-arrow:hover {
+  cursor: pointer;
+}
+
+.comment-icon {
+  width: 30%;
+}
+
+.comment-icon:hover {
+  cursor: pointer;
+}
+
+.comment-title {
+  font-family: Brandon Grotesque;
+  font-weight: bold;
+  color: #676767;
+  font-size: 125%;
+}
+
+.comment-box {
+  font-family: Brandon Grotesque;
+  color: #676767;
+  margin-top: -6%;
+  resize: none;
+}
+
+.popover-comment {
+  border-radius: 20px;
+  padding: 1%;
+}
+
+.button-submit-container {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.comment-text-container {
+  overflow: scroll;
+  height: 120px;
 }

@@ -12,6 +12,9 @@ const Post = new Schema({
     default: '',
     required: true
   },
+  comments: [{
+    type: String
+  }],
   color: {
     type: String,
     default: '',

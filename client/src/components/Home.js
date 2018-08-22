@@ -63,7 +63,7 @@ class Home extends Component {
       this.setState({createLoading: false});
     })
     .catch(err => console.log(err));
-
+    
     window.location.reload();
   }
 
@@ -71,8 +71,8 @@ class Home extends Component {
     this.setState({currentAvatar: e.target.value.toLowerCase()});
   }
 
-  chooseAvatar = () => {
-    switch (this.state.currentAvatar) {
+  chooseAvatar = avatar => {
+    switch (avatar.toLowerCase()) {
       case "badger":
         return badgerIcon;
       case "bear":
@@ -169,7 +169,7 @@ class Home extends Component {
                         </select>
                       </div>
                       <div className="col-md-3 col-3">
-                        {this.state.currentAvatar && <img src={this.chooseAvatar()} alt="selected avatar" className="form-avatar"/>}
+                        {this.state.currentAvatar && <img src={this.chooseAvatar(this.state.currentAvatar)} alt="selected avatar" className="form-avatar"/>}
                       </div>
                     </div>
                     <p className="form-text">Pick a color for your table!</p>
@@ -201,17 +201,22 @@ class Home extends Component {
               </Modal>
             </div>
           </div>
-          <div className="row posts-container">
-            {this.state.posts && this.state.posts.map(post => {
-              return (
-                <Post 
-                  id={post._id}
-                  avatarIcon={post.name}
-                  text={post.text}
-                  color={post.color}
-                  count={post.count}/>
-              )
-            })}
+          <div className="container-fluid">
+          	<div className="row posts-container">
+          	  {this.state.posts && this.state.posts.map(post => {
+          	    return (
+          	      <Post
+          	        key={post._id}
+          	        id={post._id}
+          	        avatar={post.name}
+          	        avatarIcon={this.chooseAvatar(post.name)}
+          	        text={post.text}
+          	        comments={post.comments}
+          	        color={post.color}
+          	        count={post.count}/>
+          	    )
+          	  })}
+          	</div>
           </div>
         </div>
       )

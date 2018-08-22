@@ -1,50 +1,24 @@
 import React, { Component } from 'react';
 import './Post.css';
+import Fade from 'react-reveal/Fade';
+import { Popover, PopoverBody } from 'reactstrap';
 import axios from 'axios';
 
-const badgerIcon = require('../assets/imgs/animals/badger.png');
-const pigIcon = require('../assets/imgs/animals/pig.png');
-const cowIcon = require('../assets/imgs/animals/cow.png');
-const bearIcon = require('../assets/imgs/animals/bear1.png');
-const dogIcon = require('../assets/imgs/animals/dog.png');
-const koalaIcon = require('../assets/imgs/animals/koala.png');
-const mooseIcon = require('../assets/imgs/animals/moose.png');
-const catIcon = require('../assets/imgs/animals/cat.png');
-const chickenIcon = require('../assets/imgs/animals/chicken.png');
-
 const handNew = require('../assets/imgs/hand new.png');
-const handOld = require('../assets/imgs/hand old.png')
+const handOld = require('../assets/imgs/hand old.png');
+
+const leftArrow = require('../assets/imgs/left-arrow.png');
+const rightArrow = require('../assets/imgs/right-arrow.png');
+
+const comment = require('../assets/imgs/comment.png');
 
 class Post extends Component {
 
   state = {
     counted: false,
-    count: undefined
-  }
-
-  chooseAnimal = () => {
-    switch (this.props.avatarIcon.toLowerCase()) {
-      case "badger":
-        return badgerIcon;
-      case "pig":
-        return pigIcon;
-      case "cow":
-        return cowIcon;
-      case "bear":
-        return bearIcon;
-      case "dog":
-        return dogIcon;
-      case "koala":
-        return koalaIcon;
-      case "moose":
-        return mooseIcon;
-      case "cat":
-        return catIcon;
-      case "chicken":
-        return chickenIcon;
-      default:
-        return chickenIcon;
-    }
+    count: undefined,
+    commentIndex: 0,
+    commentBox: false
   }
 
   pickColor = () => {
@@ -86,18 +60,54 @@ class Post extends Component {
   }
 
   checkCounted = () => {
-    if (this.state.counted) {
-      return handOld;
-    }
-    else {
-      return handNew;
-    }
+    return this.state.counted ? handOld : handNew;
+  }
+
+  rightArrowClick = () => {
+    this.setState({
+      commentIndex: this.state.commentIndex + 1
+    })
+  }
+
+  leftArrowClick = () => {
+    this.setState({
+      commentIndex: this.state.commentIndex - 1
+    })
+  }
+
+  toggleCommentBox = () => {
+    this.setState({
+      commentBox: !this.state.commentBox
+    })
+  }
+
+  submitComment = e => {
+    e.preventDefault();
+
+    let userComments = this.props.comments;
+    userComments.push(e.target.elements[0].value);
+
+    axios.put(`http://localhost:5000/api/posts/${this.props.id}`, {
+      comments: userComments
+    })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    });
+
+    this.setState({
+      commentIndex:  userComments.length - 1,
+      commentBox: false
+    })
   }
 
   componentDidMount = () => {
     this.setState({
       count: this.props.count,
-      counted: JSON.parse(localStorage.getItem("counted " + this.props.id))
+      counted: JSON.parse(localStorage.getItem("counted " + this.props.id)),
+      commentIndex: 0
     })
   }
 
@@ -107,18 +117,62 @@ class Post extends Component {
 
   render() {
     return (
-      <div className="col-md-3">
-        <div className="post-container">
-          <div className="content-container" style={{borderColor: this.pickColor()}}>
-            <img src={this.chooseAnimal()} alt="Anonymous animal" className="animal-icon"/>
-            <p className="text">{this.props.text}</p>
-            <div className="hand-container">
-              <img src={this.checkCounted()} alt="hand count" className="hand-count" onClick={this.increaseCount}/>
-              <p className="count-number"><strong>{this.state.count}</strong></p>
+      <Fade bottom>
+        <div className="col-md-4">
+          <div className="post-container">
+            <div className="content-container" style={{borderColor: this.pickColor()}}>
+              <div className="avatar-container">
+                <img src={this.props.avatarIcon} alt="Anonymous animal" className="animal-icon"/>
+              </div>
+              <div className="text-container">
+                <p className="text">{this.props.text}</p>
+              </div>
+              {this.props.comments.length > 0 && 
+                <div className="row justify-content-center comments-outer-container">
+                  <div className="col-md-2 col-1">
+                    {this.state.commentIndex > 0 && <img src={leftArrow} alt="left arrow" className="left-arrow" onClick={this.leftArrowClick}/>}
+                  </div>
+                  <div className="col-md-8 col-10">
+                    <div className="comments-container">
+                      <p className="comments-subtitle">COMMENTS</p>
+                      <div className="comment-text-container">
+                        <p className="comments">{this.props.comments[this.state.commentIndex]}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-2 col-1">
+                    {this.state.commentIndex < this.props.comments.length - 1 && <img src={rightArrow} alt="right arrow" className="right-arrow" onClick={this.rightArrowClick}/>}
+                  </div>
+                </div>}
+                <Popover className="popover-comment" placement="top" isOpen={this.state.commentBox} target={"popover" + this.props.id} toggle={this.toggleCommentBox}>
+                  <PopoverBody>
+                    <form onSubmit={this.submitComment}>
+                      <p className="comment-title">Comment: </p>
+                      <textarea name={"comment" + this.props.id} cols="30" rows="3" className="form-control comment-box" placeholder="Your comment..."></textarea>
+                      <div className="button-submit-container">
+                        <button className="btn btn-secondary submit-button">Submit</button>
+                      </div>
+                    </form>
+                  </PopoverBody>
+                </Popover>
+              <div className="row justify-content-center foot-container">
+                <div className="col-md-4 col-4">
+                  <div className="hand-icon-container">
+                    <img src={this.checkCounted()} alt="hand count" className="hand-count" onClick={this.increaseCount}/>
+                    <p className="count-number"><strong>{this.state.count}</strong></p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-4">
+                  <div className="comment-icon-container">
+                    <img src={comment} alt="comment icon" className="comment-icon" id={"popover" + this.props.id} onClick={this.toggleCommentBox}/>
+                    <p className="count-number"><strong>{this.props.comments.length}</strong></p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Fade>
     )
   }
 }
