@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+require("dotenv").config();
 
 // Import mLab URI
 const db = require('./config/secrets').mongoURI;
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Connect to MongoDB
-mongoose.connect(db, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI || db, {useNewUrlParser: true})
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
 
