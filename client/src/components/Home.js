@@ -52,7 +52,7 @@ class Home extends Component {
 
     this.setState({createLoading: true});
 
-    axios.post('http://localhost:5000/api/posts', {
+    axios.post('/api/posts', {
       name: userAvatar,
       color: userColor.toLowerCase(),
       text: userText,
@@ -125,7 +125,7 @@ class Home extends Component {
     this.setState({pageLoading: true});
 
     // Get and store all table posts on load
-    axios.get('http://localhost:5000/api/posts')
+    axios.get('/api/posts')
       .then(res => {
         console.log(res.data);
         this.setState({
@@ -140,7 +140,7 @@ class Home extends Component {
       this.state.pageLoading ? (
         <div className="page-loading-container">
           <div className="spinner-container"><img src={spinner1} alt="spinner" id="spinner1"/></div>
-          <h1 className="loading-message">Please wait while we get all the tables...</h1>
+          <h1 className="loading-message">Please wait while we fetch all the tables...</h1>
         </div>
       ) : (
         <div className="container-fluid home-container">
