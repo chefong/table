@@ -24,11 +24,25 @@
   font-style: italic;
 }
 
-.anonymous-container {
+.anonymous-container, .table-container {
   text-align: center;
 }
 
 #anonymous-people {
   width: 75%;
   margin-bottom: 4vw;
+}
+
+#table-example {
+  width: 85%;
+}
+
+.table-desc {
+  font-family: Brandon Grotesque;
+  font-size: 120%;
+  text-align: left;
+}
+
+.table-info-container {
+  margin: 4% 0;
 }
