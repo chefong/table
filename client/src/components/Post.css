@@ -30,7 +30,6 @@
 }
 
 .comments-container {
-  margin: 4% 2% 2% 2%;
   text-align: center;
 }
 
@@ -85,8 +84,7 @@
 }
 
 .left-arrow, .right-arrow {
-  width: 15px;
-  margin-top: 4vh;
+  width: 40%;
 }
 
 .left-arrow:hover, .right-arrow:hover {
@@ -128,4 +126,10 @@
 .comment-text-container {
   overflow: scroll;
   height: 120px;
+}
+
+.alert-dark {
+  font-family: Brandon Grotesque;
+  text-align: center;
+  margin-top: 5%;
 }

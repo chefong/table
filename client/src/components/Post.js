@@ -18,7 +18,8 @@ class Post extends Component {
     counted: false,
     count: undefined,
     commentIndex: 0,
-    commentBox: false
+    commentBox: false,
+    success: true
   }
 
   pickColor = () => {
@@ -91,10 +92,13 @@ class Post extends Component {
       comments: userComments
     })
     .then(res => {
-      console.log(res)
+      console.log(res);
+      this.setState({success: true});
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
+      this.setState({success: false});
+      return;
     });
 
     this.setState({
@@ -129,10 +133,12 @@ class Post extends Component {
               </div>
               {this.props.comments.length > 0 && 
                 <div className="row justify-content-center comments-outer-container">
-                  <div className="col-md-2 col-1">
-                    {this.state.commentIndex > 0 && <img src={leftArrow} alt="left arrow" className="left-arrow" onClick={this.leftArrowClick}/>}
+                  <div className="col-md-2 col-2">
+                    <div className="arrow-container">
+                      {this.state.commentIndex > 0 && <img src={leftArrow} alt="left arrow" className="left-arrow" onClick={this.leftArrowClick}/>}
+                    </div>
                   </div>
-                  <div className="col-md-8 col-10">
+                  <div className="col-md-8 col-8">
                     <div className="comments-container">
                       <p className="comments-subtitle">COMMENTS</p>
                       <div className="comment-text-container">
@@ -140,8 +146,10 @@ class Post extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-2 col-1">
-                    {this.state.commentIndex < this.props.comments.length - 1 && <img src={rightArrow} alt="right arrow" className="right-arrow" onClick={this.rightArrowClick}/>}
+                  <div className="col-md-2 col-2">
+                    <div className="arrow-container">
+                      {this.state.commentIndex < this.props.comments.length - 1 && <img src={rightArrow} alt="right arrow" className="right-arrow" onClick={this.rightArrowClick}/>}
+                    </div>
                   </div>
                 </div>}
                 <Popover className="popover-comment" placement="top" isOpen={this.state.commentBox} target={"popover" + this.props.id} toggle={this.toggleCommentBox}>
@@ -153,6 +161,10 @@ class Post extends Component {
                         <button className="btn btn-secondary submit-button">Submit</button>
                       </div>
                     </form>
+                    {!this.state.success && 
+                      <div className="alert alert-dark" role="alert">
+                        Oops! Something went wrong.
+                      </div> }
                   </PopoverBody>
                 </Popover>
               <div className="row justify-content-center foot-container">
